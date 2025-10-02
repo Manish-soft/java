@@ -1,0 +1,55 @@
+// Superclass
+class Staff {
+    String name;
+    int staffId;
+
+    Staff(String name, int staffId) {
+        this.name = name;
+        this.staffId = staffId;
+    }
+
+    void displayDetails() {
+        System.out.println(name + " → Staff ID=" + staffId);
+    }
+}
+
+// Doctor subclass
+class Doctor extends Staff {
+    String specialization;
+
+    Doctor(String name, int staffId, String specialization) {
+        super(name, staffId);
+        this.specialization = specialization;
+    }
+
+    @Override
+    void displayDetails() {
+        System.out.println(name + " → Staff ID=" + staffId + ", Specialization=" + specialization);
+    }
+}
+
+// Nurse subclass
+class Nurse extends Staff {
+    String shift;
+
+    Nurse(String name, int staffId, String shift) {
+        super(name, staffId);
+        this.shift = shift;
+    }
+
+    @Override
+    void displayDetails() {
+        System.out.println(name + " → Staff ID=" + staffId + ", Shift=" + shift);
+    }
+}
+
+
+ class MainHospitalStaff {
+    public static void main(String[] args) {
+        Doctor doctor = new Doctor("Dr. Reddy", 101, "Cardiology");
+        Nurse nurse = new Nurse("Nisha", 102, "Night");
+
+        doctor.displayDetails();
+        nurse.displayDetails();
+    }
+}
